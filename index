@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+body {
+    font-family: Arial, sans-serif;
+}
+
+.calculator {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+input {
+    width: 80px;
+    padding: 6px;
+}
+
+button {
+    padding: 7px 12px;
+    cursor: pointer;
+}
+
+#result {
+    font-weight: bold;
+    margin-left: 10px;
+}
+</style>
+</head>
+<body>
+
+<div class="calculator">
+    <label>Bucket Size (L)</label>
+    <input type="number" id="bucket" step="0.1">
+
+    <label>Fill Time (s)</label>
+    <input type="number" id="time" step="0.1">
+
+    <button onclick="calc()">Calculate</button>
+
+    <span id="result"></span>
+</div>
+
+<script>
+function calc() {
+    const bucket = parseFloat(document.getElementById('bucket').value);
+    const time = parseFloat(document.getElementById('time').value);
+
+    if (!bucket || !time) return;
+
+    const flow = (bucket / time) * 60 * 0.8;
+
+    document.getElementById('result').innerHTML =
+        flow.toFixed(1) + " L/min";
+}
+</script>
+
+</body>
+</html>
