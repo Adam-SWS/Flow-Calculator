@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+Bucket Size (L)<br>
+<input id="bucket"><br><br>
+
+Fill Time (s)<br>
+<input id="time"><br><br>
+
+<button onclick="calc()">Calculate</button>
+
+<p id="result"></p>
+
+<script>
+function calc() {
+  var bucket = document.getElementById('bucket').value;
+  var time = document.getElementById('time').value;
+
+  document.getElementById('result').innerHTML =
+    ((bucket / time) * 60 * 0.8).toFixed(1) + " L/min";
+}
+</script>
+
+</body>
+</html>
